@@ -5,7 +5,7 @@
 
 // ⚠️ CONFIGURE AQUI: cole a URL do seu webhook n8n
 // Exemplo: https://seu-n8n.com/webhook/meu-fluxo
-const WEBHOOK_URL = 'https://SEU_N8N_URL/webhook/SEU_ENDPOINT';
+const WEBHOOK_URL = 'https://alexandrefoda.app.n8n.cloud/webhook/e63b847f-90ef-47c0-9a5c-1f9509d528a2';
 
 // Timeout em ms para a requisição (padrão: 10s)
 const REQUEST_TIMEOUT_MS = 10000;
