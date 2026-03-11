@@ -1,8 +1,9 @@
 // =========================================
 //  E se fosse você? — webhook.js
+//  Proxy via Netlify Functions → n8n
 // =========================================
 
-const WEBHOOK_URL = 'https://alexandrefoda.app.n8n.cloud/webhook-test/e63b847f-90ef-47c0-9a5c-1f9509d528a2';
+const WEBHOOK_URL = '/api/webhook';
 
 export async function sendToWebhook(payload) {
   try {
