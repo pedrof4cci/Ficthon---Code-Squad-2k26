@@ -101,7 +101,18 @@ window.sendMessage = async function() {
   try {
     const response = await sendToWebhook(payload);
     removeLoadingMessage(loadingId);
-    if (response?.reply) addBotMessage(response.reply);
+
+    const raw = Array.isArray(response) ? response[0] : response;
+    const reply =
+      raw?.reply   ||
+      raw?.output  ||
+      raw?.message ||
+      raw?.text    ||
+      raw?.response||
+      raw?.content ||
+      (typeof raw === 'string' ? raw : null);
+
+    if (reply) addBotMessage(reply);
     else addSystemMessage('Mensagem enviada com sucesso ✓');
     showToast('Enviado ✓', 'success');
   } catch (err) {
