@@ -1,7 +1,9 @@
 [build]
-  functions = "netlify/functions"
+  command = "npm run build"
+  publish = "build"
 
 [[redirects]]
-  from = "/api/webhook"
-  to = "/.netlify/functions/webhook"
+  from = "/api/*"
+  to = "https://SEU-N8N/webhook/:splat"
   status = 200
+  force = true
