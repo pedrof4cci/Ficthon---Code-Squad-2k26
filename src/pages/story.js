@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getStory } from "../services/Api";
+import { getStory } from "../services/api";
 
 export default function Story() {
   const { id } = useParams();
