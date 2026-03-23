@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { sendMessage } from "../services/api";
+import { sendMessage } from "../services/Api";
 
 export default function Chat() {
   const [messages, setMessages] = useState([]);
