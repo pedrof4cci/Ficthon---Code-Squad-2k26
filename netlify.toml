@@ -3,7 +3,13 @@
   publish = "build"
 
 [[redirects]]
-  from = "/api/*"
-  to = "https://SEU-N8N/webhook/:splat"
+  from = "/api/get-story"
+  to = "https://alexandrefoda.app.n8n.cloud/webhook/ficthon-codesquad-2k26_cenario_pronto"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/chat"
+  to = "https://alexandrefoda.app.n8n.cloud/webhook/ficthon-codesquad-2k26_cenario_usuario"
   status = 200
   force = true

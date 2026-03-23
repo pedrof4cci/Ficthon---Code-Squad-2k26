@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { sendMessage } from "../services/api";
 
 export default function Chat() {
@@ -6,7 +7,7 @@ export default function Chat() {
   const [input, setInput] = useState("");
 
   async function handleSend() {
-    if (!input) return;
+    if (!input.trim()) return;
 
     const userMessage = { role: "user", text: input };
     setMessages((prev) => [...prev, userMessage]);
@@ -19,22 +20,46 @@ export default function Chat() {
     setInput("");
   }
 
-  return (
-    <div style={{ padding: 20 }}>
-      <h1>Chat</h1>
+  function handleKeyDown(e) {
+    if (e.key === "Enter") handleSend();
+  }
 
-      <div style={{ border: "1px solid #ccc", height: 300, overflowY: "auto", marginBottom: 10 }}>
-        {messages.map((m, i) => (
-          <p key={i}><b>{m.role}:</b> {m.text}</p>
-        ))}
+  return (
+    <div className="page">
+      <div className="page-header">
+        <Link to="/" className="story-back">← Voltar</Link>
+        <h1>Chat</h1>
+        <p>Converse sobre situações do ambiente de trabalho.</p>
       </div>
 
-      <input
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        placeholder="Digite..."
-      />
-      <button onClick={handleSend}>Enviar</button>
+      <div className="chat-container">
+        <div className="chat-messages">
+          {messages.length === 0 ? (
+            <div className="chat-empty">
+              <div className="chat-empty-icon">💬</div>
+              <p>Nenhuma mensagem ainda.<br />Comece a conversa!</p>
+            </div>
+          ) : (
+            messages.map((m, i) => (
+              <div key={i} className={`message ${m.role}`}>
+                <span className="message-label">{m.role === "user" ? "Você" : "Assistente"}</span>
+                <div className="message-bubble">{m.text}</div>
+              </div>
+            ))
+          )}
+        </div>
+
+        <div className="chat-input-row">
+          <input
+            className="chat-input"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={handleKeyDown}
+            placeholder="Digite sua mensagem..."
+          />
+          <button className="btn btn-primary" onClick={handleSend}>Enviar</button>
+        </div>
+      </div>
     </div>
   );
 }

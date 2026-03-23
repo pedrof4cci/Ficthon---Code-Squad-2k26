@@ -1,30 +1,34 @@
 import { Link } from "react-router-dom";
 
 const stories = [
-  { id: 1, title: "Assédio moral no trabalho" },
-  { id: 2, title: "Pressão abusiva por metas" },
-  { id: 3, title: "Ambiente tóxico" }
+  { id: 1, title: "Assédio moral no trabalho", icon: "😤" },
+  { id: 2, title: "Pressão abusiva por metas", icon: "📊" },
+  { id: 3, title: "Ambiente tóxico", icon: "☠️" }
 ];
 
 export default function Home() {
   return (
-    <div style={{ padding: 20 }}>
-      <h1>Histórias</h1>
+    <div className="page">
+      <div className="page-header">
+        <span className="badge">Ficthon · Code Squad</span>
+        <h1>Histórias do<br />mundo do trabalho</h1>
+        <p>Relatos reais sobre situações difíceis no ambiente profissional.</p>
+      </div>
 
-      <div style={{ display: "flex", gap: 20 }}>
+      <div className="cards-grid">
         {stories.map((s) => (
           <Link key={s.id} to={`/story/${s.id}`}>
-            <div style={{ border: "1px solid #ccc", padding: 20 }}>
+            <div className="story-card">
+              <div className="card-icon">{s.icon}</div>
               <h3>{s.title}</h3>
+              <div className="card-arrow">Ler história →</div>
             </div>
           </Link>
         ))}
       </div>
 
-      <br />
-
       <Link to="/chat">
-        <button>Ir para Chat</button>
+        <button className="btn btn-primary">💬 Ir para o Chat</button>
       </Link>
     </div>
   );
