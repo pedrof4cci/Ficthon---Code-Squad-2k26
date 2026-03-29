@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E se fosse você? — T5 Histórias</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="t5.css" />
+</head>
+<body>
+
+  <div class="screen">
+    <!-- BOTÃO VOLTAR — leva de volta para a T4
+     Troque o href se o nome do arquivo da T4 for diferente -->
+<button class="btn-voltar" onclick="window.location.href='t4.html'">
+  <svg width="10" height="18" viewBox="0 0 10 18" fill="none">
+    <path d="M9 1L1 9L9 17" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+
+    <!-- ═══════════════════════════════════════
+         CARROSSEL DE HISTÓRIAS
+         Cada .card é uma história diferente.
+         Para adicionar: copie um bloco .card inteiro
+         Para remover: apague o bloco .card inteiro
+         ═══════════════════════════════════════ -->
+    <div class="carousel" id="carousel">
+
+      <!-- CARD 1 -->
+      <div class="card" data-index="0">
+
+        <!-- IMAGEM DO CARD — troque o conteúdo do .card-img por uma <img src="..."> quando tiver a imagem -->
+        <div class="card-img">
+          <p class="card-img-placeholder">onde vai ter imagen descritiva e que faça sentido com a experiência</p>
+        </div>
+
+        <!-- TÍTULO DA HISTÓRIA -->
+        <h2 class="card-title">Vazamento de imagem íntima</h2>
+
+        <!-- TEXTO DE DESCRIÇÃO DA HISTÓRIA -->
+        <p class="card-text">Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, esse texto é onde vai ter a descrição da experiência</p>
+
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="card" data-index="1">
+        <div class="card-img">
+          <p class="card-img-placeholder">onde vai ter imagen descritiva e que faça sentido com a experiência</p>
+        </div>
+        <h2 class="card-title">Vazamento de imagem íntima</h2>
+        <p class="card-text">Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, esse texto é onde vai ter a descrição da experiência</p>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="card" data-index="2">
+        <div class="card-img">
+          <p class="card-img-placeholder">onde vai ter imagen descritiva e que faça sentido com a experiência</p>
+        </div>
+        <h2 class="card-title">Vazamento de imagem íntima</h2>
+        <p class="card-text">Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, esse texto é onde vai ter a descrição da experiência</p>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="card" data-index="3">
+        <div class="card-img">
+          <p class="card-img-placeholder">onde vai ter imagen descritiva e que faça sentido com a experiência</p>
+        </div>
+        <h2 class="card-title">Vazamento de imagem íntima</h2>
+        <p class="card-text">Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, esse texto é onde vai ter a descrição da experiência</p>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="card" data-index="4">
+        <div class="card-img">
+          <p class="card-img-placeholder">onde vai ter imagen descritiva e que faça sentido com a experiência</p>
+        </div>
+        <h2 class="card-title">Vazamento de imagem íntima</h2>
+        <p class="card-text">Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, esse texto é onde vai ter a descrição da experiência</p>
+      </div>
+
+    </div><!-- fim .carousel -->
+
+
+    <!-- ═══════════════════════════════════════
+         BOTÃO FIXO NO RODAPÉ
+         Detecta automaticamente qual card está
+         centralizado e avança para aquela história.
+         Troque o texto do botão aqui se quiser.
+         ═══════════════════════════════════════ -->
+    <footer class="bottom-bar">
+      <button class="cta-btn" id="ctaBtn" onclick="avancarHistoria()">
+        Diga você mesmo
+      </button>
+    </footer>
+
+  </div><!-- fim .screen -->
+
+  <script src="t5.js"></script>
+</body>
+</html>

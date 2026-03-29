@@ -1,0 +1,301 @@
+/* ═══════════════════════════════════════════════════════════
+   RESET
+   ═══════════════════════════════════════════════════════════ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   VARIÁVEIS GLOBAIS — mesmas das outras telas
+   ═══════════════════════════════════════════════════════════ */
+:root {
+  --bg:          #0F0F14;
+  --surface:     #2A2A33;
+  --accent-from: #FBBC21;
+  --accent-to:   #F59F0A;
+  --text:        #FFFFFF;
+  --muted:       #6B6B7A;
+
+  --font-display: 'Sora', sans-serif;
+  --font-body:    'Inter', sans-serif;
+
+  /* ALTURA DA IMAGEM DE FINALIZAÇÃO — ajuste aqui */
+  --hero-height: 160px;
+
+  /* ALTURA DOS CARDS (direitos e leis) — ajuste aqui */
+  --card-height: 80px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FUNDO DA PÁGINA
+   ═══════════════════════════════════════════════════════════ */
+body {
+  background: #050505;
+  font-family: var(--font-body);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MOLDURA DO CELULAR
+   ═══════════════════════════════════════════════════════════ */
+.screen {
+  width: 375px;
+  height: 812px;
+  background: var(--bg);
+  border-radius: 44px;
+  border: 3px solid #2a2a2a;
+  box-shadow: 0 40px 80px rgba(0,0,0,.6);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ÁREA ROLÁVEL
+   ═══════════════════════════════════════════════════════════ */
+.content-scroll {
+  flex: 1;
+  min-height: 0;      /* essencial para overflow funcionar dentro de flex */
+  overflow-y: auto;
+  scrollbar-width: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;          /* espaço entre as seções — ajuste aqui */
+  padding-bottom: 8px;
+}
+
+.content-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   IMAGEM DE FINALIZAÇÃO
+   ═══════════════════════════════════════════════════════════ */
+.hero-img {
+  width: 100%;
+  height: var(--hero-height);
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.placeholder-text {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CABEÇALHO DO RELATÓRIO
+   ═══════════════════════════════════════════════════════════ */
+.report-header {
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* "Resumo da experiência" */
+.report-title {
+  font-family: var(--font-display);
+  font-size: 20px;    /* tamanho do título — ajuste aqui */
+  font-weight: 800;
+  color: var(--text);
+  text-align: center;
+}
+
+/* Subtítulo explicativo */
+.report-subtitle {
+  font-family: var(--font-body);
+  font-size: 12px;    /* tamanho do subtítulo — ajuste aqui */
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SEÇÕES DO RELATÓRIO
+   ═══════════════════════════════════════════════════════════ */
+.report-section {
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Linha divisória com label centralizado
+   Estilo: ─────── Nome da seção ─────── */
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--surface);
+}
+
+.section-label {
+  font-family: var(--font-body);
+  font-size: 11px;    /* tamanho do título da seção — ajuste aqui */
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CARDS LADO A LADO (direitos e leis)
+   ═══════════════════════════════════════════════════════════ */
+.cards-row {
+  display: flex;
+  gap: 12px;          /* espaço entre os cards — ajuste aqui */
+}
+
+/* Card de direito afetado */
+.rights-card {
+  flex: 1;
+  height: var(--card-height);
+  background: var(--surface);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Card de lei/apoio */
+.law-card {
+  flex: 1;
+  height: var(--card-height);
+  background: var(--surface);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   LISTA DE SUGESTÕES (O que poderia ter sido feito)
+   ═══════════════════════════════════════════════════════════ */
+.suggestions-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;           /* espaço entre os itens — ajuste aqui */
+}
+
+.suggestions-list li {
+  font-family: var(--font-body);
+  font-size: 13px;    /* tamanho do texto das sugestões — ajuste aqui */
+  color: var(--text);
+  padding-left: 16px;
+  position: relative;
+  line-height: 1.5;
+}
+
+/* Bullet personalizado com ponto amarelo */
+.suggestions-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--accent-from);
+  font-size: 14px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SINAIS DE ALERTA (checkboxes)
+   ═══════════════════════════════════════════════════════════ */
+.alerts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;          /* espaço entre os itens — ajuste aqui */
+}
+
+.alert-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Checkbox — fundo cinza quando não marcado */
+.alert-checkbox {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  background: var(--surface);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Checkbox — fundo amarelo quando marcado (classe "checked") */
+.alert-item.checked .alert-checkbox {
+  background: linear-gradient(135deg, var(--accent-from), var(--accent-to));
+}
+
+.alert-label {
+  font-family: var(--font-body);
+  font-size: 13px;    /* tamanho do texto dos alertas — ajuste aqui */
+  color: var(--text);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BOTÕES FIXOS NO RODAPÉ
+   ═══════════════════════════════════════════════════════════ */
+.footer-btns {
+  display: flex;
+  gap: 12px;          /* espaço entre os dois botões — ajuste aqui */
+  padding: 14px 24px 32px;
+  background: var(--bg);
+  flex-shrink: 0;
+}
+
+/* BOTÃO OUTLINE (esquerdo) */
+.btn-outline {
+  flex: 1;
+  height: 48px;
+  background: transparent;
+  border: 1.5px solid var(--surface);
+  border-radius: 50px;
+  font-family: var(--font-display);
+  font-size: 13px;    /* tamanho do texto — ajuste aqui */
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  transition: background .15s;
+}
+
+.btn-outline:hover {
+  background: var(--surface);
+}
+
+/* BOTÃO PRIMÁRIO AMARELO (direito) */
+.btn-primary {
+  flex: 1;
+  height: 48px;
+  background: linear-gradient(90deg, var(--accent-from), var(--accent-to));
+  border: none;
+  border-radius: 50px;
+  font-family: var(--font-display);
+  font-size: 13px;    /* tamanho do texto — ajuste aqui */
+  font-weight: 700;
+  color: #000;
+  cursor: pointer;
+  transition: opacity .15s;
+}
+
+.btn-primary:hover {
+  opacity: .88;
+}

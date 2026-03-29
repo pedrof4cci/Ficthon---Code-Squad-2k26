@@ -1,0 +1,211 @@
+/* ═══════════════════════════════════════════════════════════
+   RESET
+   ═══════════════════════════════════════════════════════════ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   VARIÁVEIS GLOBAIS
+   Mesmas variáveis do styles.css da T4 — mantenha iguais
+   para consistência visual entre as telas.
+   ═══════════════════════════════════════════════════════════ */
+:root {
+  --bg:          #0F0F14;
+  --surface:     #2A2A33;
+  --accent-from: #FBBC21;
+  --accent-to:   #F59F0A;
+  --text:        #FFFFFF;
+  --muted:       #6B6B7A;
+
+  --font-display: 'Sora', sans-serif;
+  --font-body:    'Inter', sans-serif;
+
+  /* LARGURA DO CARD — ajuste para deixar o card seguinte
+     mais ou menos visível na borda da tela */
+  --card-width: 80vh;
+
+  /* ESPAÇO ENTRE OS CARDS */
+  --card-gap: 16px;
+
+  /* ALTURA DA IMAGEM NO TOPO DO CARD */
+  --card-img-height: 220px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FUNDO DA PÁGINA (só visível no navegador)
+   ═══════════════════════════════════════════════════════════ */
+body {
+  background: #050505;
+  font-family: var(--font-body);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MOLDURA DO CELULAR (só para visualização no navegador)
+   ═══════════════════════════════════════════════════════════ */
+.screen {
+  width: 375px;
+  min-height: 812px;
+  background: var(--bg);
+  border-radius: 44px;
+  border: 3px solid #2a2a2a;
+  box-shadow: 0 40px 80px rgba(0,0,0,.6);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CARROSSEL HORIZONTAL
+   scroll-snap faz o carrossel "travar" no card mais próximo
+   ao soltar o dedo/mouse.
+   ═══════════════════════════════════════════════════════════ */
+.carousel {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  gap: var(--card-gap);
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;   /* trava no card mais próximo */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;           /* esconde a barra de scroll */
+  padding: 40px 52px 120px;        /* 52px nas laterais deixa o card seguinte visível */
+
+  /* Centraliza o primeiro card ao abrir */
+  scroll-padding-left: 52px;
+}
+
+/* Esconde scrollbar no Chrome/Safari */
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CARD INDIVIDUAL
+   ═══════════════════════════════════════════════════════════ */
+.card {
+  min-width: 30vh;      /* largura máxima do card — troque o valor aqui */
+  max-width: 30vh;      /* garante que não ultrapasse */
+  scroll-snap-align: center;
+  background: var(--surface);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .3s, opacity .3s;
+  flex-shrink: 0;
+}
+
+/* Card que NÃO está centralizado fica levemente menor e apagado */
+.card:not(.active) {
+  transform: scale(0.95);
+  opacity: 0.6;
+}
+
+/* Card centralizado (ativo) fica em destaque */
+.card.active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   IMAGEM DO CARD
+   Troque o fundo de .card-img por uma <img> real quando
+   tiver as imagens do projeto.
+   ═══════════════════════════════════════════════════════════ */
+.card-img {
+  width: 100%;
+  height: var(--card-img-height);  /* altura da imagem — ajuste em --card-img-height */
+  background: #3a3a45;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  flex-shrink: 0;
+}
+
+/* Texto placeholder enquanto não há imagem real */
+.card-img-placeholder {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TEXTO DO CARD
+   ═══════════════════════════════════════════════════════════ */
+.card-title {
+  font-family: var(--font-display);
+  font-size: 18px;       /* tamanho do título da história */
+  font-weight: 700;
+  color: var(--text);
+  padding: 16px 16px 8px;
+  line-height: 1.2;
+}
+
+.card-text {
+  font-family: var(--font-body);
+  font-size: 12px;       /* tamanho do texto de descrição */
+  color: var(--muted);
+  padding: 0 16px 20px;
+  line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RODAPÉ COM BOTÃO FIXO
+   O botão fica sempre visível sobre o carrossel.
+   ═══════════════════════════════════════════════════════════ */
+.bottom-bar {
+  position: absolute;       /* fixo sobre o carrossel */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px 24px 36px;
+
+  /* Gradiente para suavizar a transição entre o card e o botão */
+  background: linear-gradient(to top, var(--bg) 70%, transparent);
+}
+
+/* BOTÃO PRINCIPAL — degradê amarelo */
+.cta-btn {
+  width: 100%;
+  height: 52px;
+  background: linear-gradient(90deg, var(--accent-from), var(--accent-to));
+  border: none;
+  border-radius: 50px;
+  font-family: var(--font-display);
+  font-size: 15px;        /* tamanho do texto do botão */
+  font-weight: 700;
+  color: #000;            /* texto preto para contraste com o amarelo */
+  cursor: pointer;
+  transition: opacity .15s;
+}
+
+.cta-btn:hover {
+  opacity: .88;
+}
+/* ═══════════════════════════════════════════════════════════
+   BOTÃO VOLTAR (canto superior esquerdo)
+   Troque o valor de "top" e "left" para reposicionar
+   ═══════════════════════════════════════════════════════════ */
+.btn-voltar {
+  position: absolute;   /* flutua sobre o carrossel */
+  top: 20px;            /* distância do topo — ajuste aqui */
+  left: 20px;           /* distância da esquerda — ajuste aqui */
+  z-index: 10;          /* fica na frente do carrossel */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}

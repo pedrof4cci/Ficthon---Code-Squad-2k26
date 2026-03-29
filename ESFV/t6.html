@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E se fosse você? — T6 Simulação</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="t6.css" />
+</head>
+<body>
+
+  <div class="screen">
+
+    <!-- ═══════════════════════════════════════
+         BARRA SUPERIOR
+         ═══════════════════════════════════════ -->
+    <header class="topbar">
+
+      <!-- BOTÃO VOLTAR — ajuste o href para a tela anterior -->
+      <button class="btn-voltar" onclick="window.location.href='t5.html'">
+        <svg width="10" height="18" viewBox="0 0 10 18" fill="none">
+          <path d="M9 1L1 9L9 17" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <!-- TÍTULO DA TOPBAR -->
+      <div class="topbar-title">
+        E se fosse<br><span class="gradient-text">você?</span>
+      </div>
+
+      <!-- Espaço vazio que equilibra o botão voltar e mantém o título centralizado -->
+      <div class="topbar-spacer"></div>
+
+    </header>
+
+    <!-- LINHA DECORATIVA ABAIXO DA TOPBAR -->
+    <div class="topbar-line"></div>
+
+    <!-- BARRA DE PROGRESSO — mostra quantas perguntas já foram respondidas
+         Troque o valor de "width" no .progress-fill para mudar o progresso
+         Exemplo: 25% = 1 de 4 perguntas | 50% = metade | 100% = última -->
+    <div class="progress-bar">
+      <div class="progress-fill" style="width: 25%;"></div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════
+         ÁREA ROLÁVEL — imagem + texto descem
+         se o conteúdo for maior que o espaço
+         ═══════════════════════════════════════ -->
+    <div class="content-scroll">
+
+      <!-- IMAGEM DA CENA — troque por <img src="..."> quando tiver a imagem real -->
+      <div class="scene-img">
+        <p class="scene-img-placeholder">onde vai ter imagen ilustrativa<br>específica da cena narrada</p>
+      </div>
+
+      <!-- TEXTO DO CENÁRIO — entregue pela IA (Wrokie)
+           No React, esse texto virá como prop ou estado da API -->
+      <p class="scene-text">
+        Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração
+      </p>
+
+    </div><!-- fim .content-scroll -->
+
+
+    <!-- ═══════════════════════════════════════
+         OPÇÕES FIXAS — sempre visíveis na parte
+         inferior, independente da rolagem acima.
+         Para adicionar uma opção: copie um <button class="choice-btn">
+         Para remover: apague o bloco inteiro
+         No React, esses botões virão dinamicamente da API
+         ═══════════════════════════════════════ -->
+    <div class="choices-fixed">
+
+      <!-- LABEL "O que você faz?" -->
+      <p class="choices-label">O que você faz?</p>
+
+      <!-- OPÇÃO 1 — troque o texto pelo conteúdo real da resposta -->
+      <button class="choice-btn" onclick="selecionarOpcao(this)">Dificuldade em dizer não</button>
+
+      <!-- OPÇÃO 2 -->
+      <button class="choice-btn" onclick="selecionarOpcao(this)">Dificuldade em dizer não</button>
+
+      <!-- OPÇÃO 3 -->
+      <button class="choice-btn" onclick="selecionarOpcao(this)">Dificuldade em dizer não</button>
+
+      <!-- OPÇÃO 4 -->
+      <button class="choice-btn" onclick="selecionarOpcao(this)">Dificuldade em dizer não</button>
+
+      <!-- BOTÃO CONFIRMAR — fica escondido até uma opção ser selecionada
+           Troque 't7.html' pela próxima tela quando estiver pronta -->
+      <button class="btn-confirmar" id="btnConfirmar" onclick="avancarPagina()">
+        Confirmar
+      </button>
+
+    </div>
+
+  </div><!-- fim .screen -->
+
+  <script src="t6.js"></script>
+</body>
+</html>

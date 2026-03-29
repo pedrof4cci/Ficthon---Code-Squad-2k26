@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- TÍTULO DA ABA DO NAVEGADOR — mude o texto aqui -->
+  <title>E se fosse você? — T4 Home</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- FONTES — Sora é usada nos títulos, Inter no corpo do texto.
+       Para trocar, acesse fonts.google.com, escolha outra fonte e substitua a URL abaixo -->
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- MOLDURA DO CELULAR — só existe para visualização no navegador.
+       No app de verdade você apaga essa <div class="screen"> e usa só o conteúdo interno -->
+  <div class="screen">
+
+
+    <!-- ═══════════════════════════════════════
+         BARRA SUPERIOR (topbar)
+         ═══════════════════════════════════════ -->
+    <header class="topbar">
+
+      <!-- BOTÃO DE MENU (ícone hamburguer — as 3 linhas)
+           Para trocar por uma imagem, apague os 3 <span> e coloque:
+           <img src="seu-icone.svg" width="22" height="22"> -->
+      <button class="icon-btn" aria-label="Menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <!-- TÍTULO NO CENTRO DA TOPBAR
+           Troque os textos à vontade.
+           O trecho dentro de <span class="gradient-text"> fica com a cor degradê amarela.
+           Para mudar as cores do degradê, edite --accent-from e --accent-to no styles.css -->
+      <div class="topbar-title">
+  <div>E se fosse</div>
+  <div class="gradient-text">você?</div>
+</div>
+
+      <!-- ÍCONE DE PERFIL (canto direito)
+           Atualmente é um SVG de bonequinho.
+           Para trocar por foto do usuário logado, substitua o <svg> por:
+           <img src="foto-usuario.jpg" width="30" height="30" style="border-radius:50%; object-fit:cover"> -->
+      <button class="icon-btn" aria-label="Perfil">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <circle cx="11" cy="8" r="4" stroke="#fff" stroke-width="1.8"/>
+          <path d="M3 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+    </header>
+
+
+    <!-- ═══════════════════════════════════════
+         SAUDAÇÃO AO USUÁRIO
+         ═══════════════════════════════════════ -->
+    <section class="greeting">
+
+      <!-- NOME DO USUÁRIO — no app dinâmico isso virá do banco de dados/login.
+           Por enquanto troque "Yuri Alberto" pelo nome que quiser testar -->
+      <p class="greeting-name">Olá, Yuri Alberto</p>
+
+      <!-- TÍTULO PRINCIPAL DA TELA
+           Use <br> para forçar quebra de linha onde quiser -->
+      <h1 class="greeting-title">Que história você<br>quer viver hoje?</h1>
+
+      <!-- TEXTO DE APOIO abaixo do título -->
+      <p class="greeting-sub">Suas decisões mudam o rumo da história.</p>
+
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         LISTA DE CATEGORIAS
+
+         → Para ADICIONAR uma categoria: copie um bloco <button> completo e cole abaixo
+         → Para REMOVER uma categoria: apague o bloco <button> completo
+         → Para REORDENAR: recorte e cole os blocos <button> na ordem desejada
+         → Para deixar um botão ATIVO (fundo amarelo): adicione "active" na classe,  ex: class="category-btn active"
+         → Para deixar INATIVO (fundo cinza): deixe só class="category-btn"
+         ═══════════════════════════════════════ -->
+    <nav class="categories">
+
+  <!-- CATEGORIA 1 — sem recuo (início da pirâmide) -->
+  <button class="category-btn" style="margin-left: 0px;">
+    <span class="category-icon">🔒</span>
+    <span class="category-label">Golpe digital</span>
+  </button>
+
+  <!-- CATEGORIA 2 — recuo médio -->
+  <button class="category-btn" style="margin-left: 24px;">
+    <span class="category-icon">💼</span>
+    <span class="category-label">Assédio no trabalho</span>
+  </button>
+
+  <!-- CATEGORIA 3 — ATIVA, clicável, navega para a T5 -->
+<button class="category-btn active" style="margin-left: 48px;" onclick="window.location.href='t5.html'">
+  <span class="category-icon">📷</span>
+  <span class="category-label">Vazamento de imagem íntima</span>
+</button>
+
+  <!-- CATEGORIA 4 — volta ao recuo médio -->
+  <button class="category-btn" style="margin-left: 24px;">
+    <span class="category-icon">🎤</span>
+    <span class="category-label">Discriminação em entrevista</span>
+  </button>
+
+  <!-- BOTÃO "VER MAIS" — sem recuo (fim da pirâmide) -->
+  <button class="category-btn" style="margin-left: 0px;">
+    <span class="category-label">Ver mais histórias...</span>
+  </button>
+
+</nav>
+
+
+    <!-- ESPAÇO FLEXÍVEL — empurra o rodapé para baixo. Não mexa aqui -->
+    <div class="spacer"></div>
+
+
+    <!-- ═══════════════════════════════════════
+         BOTÃO FIXO NO RODAPÉ
+         ═══════════════════════════════════════ -->
+    <footer class="bottom-bar">
+
+      <!-- BOTÃO PRINCIPAL DO RODAPÉ
+           Troque o texto "Conte seu relato" pelo que quiser.
+           O ícone atual é o logo SVG do app.
+           Para trocar o ícone por uma imagem, substitua o <svg> por:
+           <img src="icone.svg" width="20" height="20"> -->
+      <button class="cta-btn">
+        <img src="img/logo.svg" alt="" class="cta-icon"width="50" height="35">
+        Conte seu relato
+      </button>
+
+    </footer>
+
+  </div><!-- fim da moldura .screen -->
+
+</body>
+</html>

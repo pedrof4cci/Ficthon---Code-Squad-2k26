@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E se fosse você? — Loading</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="loading.css" />
+</head>
+<body>
+
+  <div class="screen">
+
+    <header class="topbar">
+      <button class="btn-voltar" onclick="window.location.href='t5.html'">
+        <svg width="10" height="18" viewBox="0 0 10 18" fill="none">
+          <path d="M9 1L1 9L9 17" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+            <div class="topbar-title">
+  <div>E se fosse</div>
+  <div class="gradient-text">você?</div>
+</div>
+      <div class="topbar-spacer"></div>
+    </header>
+
+    <div class="content">
+
+      <!-- TEXTO SUPERIOR — troque aqui se quiser outra mensagem -->
+      <p class="loading-text-top">Identificando os pontos de decisão...</p>
+
+      <!-- LOGO ANIMADA — paths 100% fiéis ao Figma
+           O JS alterna o fill de cada elemento entre branco e âmbar -->
+      <div class="logo-wrap">
+        <svg viewBox="0 0 2348 1508" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+          <!-- NÓ TOPO -->
+          <ellipse id="node-top"
+            cx="1169.92" cy="175.254" rx="175.285" ry="175.254" fill="white"/>
+
+          <!-- NÓ RAIZ (baixo) -->
+          <ellipse id="node-root"
+            cx="1169.92" cy="1088.21" rx="175.285" ry="175.254" fill="white"/>
+
+          <!-- NÓ DIREITO -->
+          <ellipse id="node-right"
+            cx="1830.3" cy="321.978" rx="175.285" ry="175.254" fill="white"/>
+
+          <!-- GALHO DIREITO -->
+          <path id="line-right"
+            d="M1626.61 317.621C1501.61 347.83 1389.71 419.323 1308.04 521.142C1226.37 622.961 1179.44 749.49 1174.44 881.339L1240.39 883.977C1244.82 766.952 1286.48 654.649 1358.96 564.277C1431.45 473.906 1530.78 410.452 1641.72 383.639L1626.61 317.621Z"
+            fill="white"/>
+
+          <!-- NÓ ESQUERDO -->
+          <ellipse id="node-left"
+            cx="175.285" cy="175.254" rx="175.285" ry="175.254"
+            transform="matrix(-1 0 0 1 692.986 146.724)" fill="white"/>
+
+          <!-- GALHO ESQUERDO -->
+          <path id="line-left"
+            d="M721.391 317.621C846.385 347.83 958.293 419.323 1039.96 521.142C1121.63 622.961 1168.56 749.49 1173.56 881.339L1107.61 883.977C1103.18 766.952 1061.52 654.649 989.036 564.277C916.548 473.906 817.222 410.452 706.281 383.639L721.391 317.621Z"
+            fill="white"/>
+
+          <!-- GALHO CENTRAL -->
+          <path id="line-center"
+            d="M1141.39 366.811H1206.61L1178.08 794.757V880.346H1169.92V794.757L1141.39 366.811Z"
+            fill="white"/>
+
+        </svg>
+      </div>
+
+      <!-- TEXTO INFERIOR — troque aqui se quiser outra mensagem -->
+      <p class="loading-text-bottom">Gerando seu relatório final personalizado</p>
+
+    </div>
+
+  </div>
+
+  <script src="loading.js"></script>
+</body>
+</html>

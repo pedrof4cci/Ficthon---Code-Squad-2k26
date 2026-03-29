@@ -1,0 +1,277 @@
+/* ═══════════════════════════════════════════════════════════
+   RESET — zera margens e padding padrão do navegador.
+   Não precisa mexer aqui.
+   ═══════════════════════════════════════════════════════════ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   VARIÁVEIS GLOBAIS DE COR E FONTE
+   Mexa aqui para mudar o tema inteiro do app de uma vez só.
+   ═══════════════════════════════════════════════════════════ */
+:root {
+
+  /* COR DE FUNDO PRINCIPAL das telas */
+  --bg: #0F0F14;
+
+  /* COR DOS BOTÕES INATIVOS (cinza escuro) */
+  --surface: #2A2A33;
+
+  /* COR DO DEGRADÊ AMARELO
+     --accent-from = cor da esquerda
+     --accent-to   = cor da direita */
+  --accent-from: #FBBC21;
+  --accent-to:   #F59F0A;
+
+  /* COR DO TEXTO PRINCIPAL */
+  --text: #FFFFFF;
+
+  /* COR DO TEXTO SECUNDÁRIO / APAGADO */
+  --muted: #6B6B7A;
+
+  /* FONTE DOS TÍTULOS (Sora) e FONTE DO CORPO (Inter)
+     Para trocar, mude o nome aqui E também na URL do Google Fonts no HTML */
+  --font-display: 'Sora', sans-serif;
+  --font-body:    'Inter', sans-serif;
+
+  /* ARREDONDAMENTO DAS BORDAS
+     --radius-pill  = botões de categoria (mais arredondado)
+     --radius-card  = botão do rodapé (menos arredondado) */
+  --radius-pill: 50px;
+
+  /* ALTURA DOS BOTÕES DE CATEGORIA — valor exato do Figma */
+  --btn-height: 36.13px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   FUNDO DA PÁGINA (visível só no navegador, fora da moldura)
+   Troque a cor se quiser outro fundo de visualização
+   ═══════════════════════════════════════════════════════════ */
+body {
+  background: #050505;
+  font-family: var(--font-body);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   MOLDURA DO CELULAR (só para visualização no navegador)
+   No app de verdade, essa classe não existe.
+   Mude "width" e "min-height" se quiser simular outro tamanho de tela.
+   ═══════════════════════════════════════════════════════════ */
+.screen {
+  width: 375px;       /* largura do iPhone 14 — troque para testar outros tamanhos */
+  min-height: 812px;  /* altura do iPhone 14 */
+  background: var(--bg);
+  border-radius: 44px;
+  border: 3px solid #2a2a2a;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, .6);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   BARRA SUPERIOR (topbar)
+   ═══════════════════════════════════════════════════════════ */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 41px 24px 10px; /* cima | lados | baixo — ajuste o espaçamento aqui */
+}
+
+/* Texto do título da topbar */
+.topbar-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 24px; /* tamanho do título da topbar */
+  color: var(--text);
+  text-align: center;
+  line-height: 0,8;
+}
+
+/* Trecho de texto com degradê amarelo
+   As cores vêm de --accent-from e --accent-to lá em cima */
+.gradient-text {
+  background: linear-gradient(90deg, var(--accent-from), var(--accent-to));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Botões de ícone (menu e perfil) */
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* As 3 linhas do ícone hamburguer
+   Mude "width" para deixar as linhas mais largas ou estreitas */
+.hamburger-line {
+  display: block;
+  width: 20px;  /* largura de cada linha */
+  height: 2px;  /* espessura de cada linha */
+  background: var(--text);
+  border-radius: 2px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   SAUDAÇÃO AO USUÁRIO
+   ═══════════════════════════════════════════════════════════ */
+.greeting {
+  padding: 75px 24px 0; /* espaçamento interno da seção de saudação */
+}
+
+/* "Olá, Yuri Alberto" */
+.greeting-name {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 14px; /* espaço entre o nome e o título */
+}
+
+/* "Que história você quer viver hoje?" */
+.greeting-title {
+  font-family: var(--font-display);
+  font-size: 20px;   /* tamanho do título principal — aumente ou reduza aqui */
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.2;
+  margin-bottom: 14px; /* espaço entre o título e o subtítulo */
+}
+
+/* "Suas decisões mudam o rumo da história." */
+.greeting-sub {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--muted); /* cor do texto apagado — mude em --muted lá em cima */
+  margin-bottom: 41px; /* espaço entre o subtítulo e os botões de categoria */
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   BOTÕES DE CATEGORIA
+   ═══════════════════════════════════════════════════════════ */
+.categories {
+  padding: 0 24px;   /* espaçamento lateral da lista de botões */
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* espaço ENTRE os botões — aumente para mais respiro */
+}
+
+/* Estilo BASE de cada botão (estado inativo = cinza) */
+.category-btn {
+  height: var(--btn-height); /* altura vem de --btn-height lá em cima */
+  background: var(--surface); /* cor de fundo inativo = --surface */
+  border: none;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  padding: 0 16px; /* espaço interno horizontal — aumenta para botões mais largos */
+  gap: 8px;        /* espaço entre o emoji e o texto */
+  cursor: pointer;
+  align-self: flex-start; /* botão só ocupa o tamanho do seu conteúdo */
+  transition: opacity .15s;
+}
+
+/* Efeito ao passar o mouse por cima */
+.category-btn:hover {
+  opacity: .85;
+}
+
+/* Estado ATIVO — fundo com degradê amarelo
+   Adicione class="category-btn active" no HTML para ativar */
+.category-btn.active {
+  background: linear-gradient(90deg, var(--accent-from), var(--accent-to));
+}
+
+/* Texto do botão ativo fica preto para contraste com o fundo amarelo */
+.category-btn.active .category-label {
+  color: #000;
+}
+
+/* Emoji do botão */
+.category-icon {
+  font-size: 14px; /* tamanho do emoji */
+  line-height: 1;
+}
+
+/* Texto do botão */
+.category-label {
+  font-family: var(--font-body);
+  font-size: 12px;  /* tamanho do texto dos botões de categoria */
+  font-weight: 500;
+  color: var(--text);
+  white-space: nowrap; /* impede quebra de linha dentro do botão */
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   ESPAÇO FLEXÍVEL — empurra o rodapé para o final da tela.
+   Não precisa mexer aqui.
+   ═══════════════════════════════════════════════════════════ */
+.spacer {
+  flex: 1;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   RODAPÉ COM BOTÃO PRINCIPAL ("Conte seu relato")
+   ═══════════════════════════════════════════════════════════ */
+.bottom-bar {
+  padding: 0 24px 41px; /* espaço: nada em cima | lados | embaixo */
+}
+
+/* Botão do rodapé */
+.cta-btn {
+  width: 100%;
+  height: 52px;          /* altura do botão do rodapé */
+  background: var(--surface);
+  border: none;
+  border-radius: 50PX;
+  display: flex;
+  align-items: center;
+  padding: 0px 10px ;
+  gap: 10px;
+  cursor: pointer;
+  transition: opacity .15s;
+}
+
+/* Efeito ao passar o mouse */
+.cta-btn:hover {
+  opacity: .85;
+}
+
+/* Texto do botão do rodapé */
+.cta-btn,
+.cta-btn span {
+  font-family: var(--font-body);
+  font-size: 14px;  /* tamanho do texto "Conte seu relato" */
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* Ícone SVG do rodapé */
+.cta-icon {
+  flex-shrink: 0; /* impede o ícone de encolher */
+}
