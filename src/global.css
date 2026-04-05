@@ -1,0 +1,89 @@
+/* ═══════════════════════════════════════════════════════════
+   RESET
+   ═══════════════════════════════════════════════════════════ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   VARIÁVEIS GLOBAIS — copiadas exatamente dos CSS originais
+   ═══════════════════════════════════════════════════════════ */
+:root {
+  --bg:          #0F0F14;
+  --surface:     #2A2A33;
+  --accent-from: #FBBC21;
+  --accent-to:   #F59F0A;
+  --text:        #FFFFFF;
+  --muted:       #6B6B7A;
+  --error:       #E5484D;
+  --font-display: 'Sora', sans-serif;
+  --font-body:    'Inter', sans-serif;
+  --radius-pill:  50px;
+  --btn-height:   36.13px;
+  --scene-img-height: 200px;
+  --hero-height:  160px;
+  --card-height:  80px;
+  --logo-amber:   #F59F0A;
+  --anim-speed:   0.3s;
+}
+
+html, body, #root {
+  height: 100%;
+  background: #050505;
+  font-family: var(--font-body);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Centraliza a .screen no browser exatamente como o HTML original */
+.app-shell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #050505;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   .screen — moldura do celular
+   No celular real, ocupa tela toda. No PC fica com bordas.
+   ═══════════════════════════════════════════════════════════ */
+.screen {
+  width: 375px;
+  height: 812px;
+  background: var(--bg);
+  border-radius: 44px;
+  border: 3px solid #2a2a2a;
+  box-shadow: 0 40px 80px rgba(0,0,0,.6);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Em celular real: sem borda, tela cheia */
+@media (max-width: 430px) {
+  .app-shell { align-items: flex-start; }
+  .screen {
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+  }
+}
+
+/* ── Gradient text helper ── */
+.gradient-text {
+  background: linear-gradient(90deg, var(--accent-from), var(--accent-to));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Scrollbar oculta ── */
+::-webkit-scrollbar { display: none; }
+* { scrollbar-width: none; }
